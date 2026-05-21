@@ -336,6 +336,11 @@
       order: 7;
     }
 
+    .reference-footer {
+      order: 8;
+      margin-top: 22px;
+    }
+
     .section-head {
       margin-bottom: 12px;
     }
@@ -936,6 +941,54 @@
       --group-color: #ffd6e9;
     }
 
+    .reference-note {
+      border: 2px solid var(--line);
+      border-radius: var(--radius);
+      background: rgba(255, 255, 255, .76);
+      box-shadow: 3px 3px 0 rgba(17, 17, 17, .25);
+    }
+
+    .reference-note summary {
+      display: flex;
+      min-height: 42px;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      padding: 9px 10px;
+      color: #4f4841;
+      font-size: 12px;
+      line-height: 1.2;
+      font-weight: 900;
+    }
+
+    .reference-note summary::after {
+      flex: 0 0 auto;
+      width: 18px;
+      height: 18px;
+      font-size: 14px;
+    }
+
+    .reference-body {
+      padding: 0 10px 11px;
+      color: #625a53;
+      font-size: 12px;
+      line-height: 1.45;
+      font-weight: 680;
+    }
+
+    .reference-links {
+      display: grid;
+      gap: 6px;
+      margin-top: 8px;
+    }
+
+    .reference-links a {
+      color: #1f5c9f;
+      font-weight: 900;
+      text-decoration-thickness: 1px;
+      text-underline-offset: 2px;
+    }
+
     .final-card {
       display: grid;
       grid-template-columns: 48px 1fr;
@@ -1472,6 +1525,22 @@
           <div><h3>응원은 완벽보다 타이밍</h3><p>응원단장, 전광판, 옆자리 박수 리듬만 따라가면 충분합니다.</p></div>
         </div>
       </section>
+
+      <footer class="reference-footer">
+        <details class="reference-note">
+          <summary>참고 정보</summary>
+          <div class="reference-body">
+            <p>경기 일정, 선수단, 응원가 공개, 기본 규칙을 확인할 때 참고한 링크입니다. 당일 라인업과 현장 운영은 경기장 안내를 기준으로 보면 됩니다.</p>
+            <div class="reference-links">
+              <a href="https://m.ticket.yes24.com/Notice/Detail.aspx?bid=17854" target="_blank" rel="noreferrer">예스24 티켓: 2026시즌 네 번째 직관 안내</a>
+              <a href="https://www.starnewskorea.com/broadcast-show/2026/05/12/2026051207395795628" target="_blank" rel="noreferrer">스타뉴스: 5월 24일 단국대전 및 주요 선수 언급</a>
+              <a href="https://enter.etoday.co.kr/news/view/297504" target="_blank" rel="noreferrer">비즈엔터: 불꽃야구2 선수단 및 오승환 합류 보도</a>
+              <a href="https://www.etoday.co.kr/news/view/2494499" target="_blank" rel="noreferrer">이투데이: 불꽃야구 선수 응원가 공개 보도</a>
+              <a href="https://visualbaseball.com/rules" target="_blank" rel="noreferrer">Visual Baseball: 야구 규칙 입문 정리</a>
+            </div>
+          </div>
+        </details>
+      </footer>
     </main>
   </div>
 </body>
