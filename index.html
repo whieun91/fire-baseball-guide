@@ -336,11 +336,6 @@
       order: 7;
     }
 
-    .reference-footer {
-      order: 8;
-      margin-top: 22px;
-    }
-
     .section-head {
       margin-bottom: 12px;
     }
@@ -889,76 +884,67 @@
       font-weight: 720;
     }
 
-    .position-groups {
+    .position-lines {
       display: grid;
-      gap: 10px;
+      gap: 7px;
       margin-top: 12px;
     }
 
-    .position-group {
-      display: grid;
-      gap: 8px;
-    }
-
-    .position-label {
-      display: inline-flex;
-      width: fit-content;
-      min-height: 25px;
-      align-items: center;
-      padding: 3px 9px;
+    .position-line {
+      padding: 8px 9px;
       border: 2px solid var(--line);
-      border-radius: 999px;
-      background: var(--group-color, #fff);
+      border-radius: var(--radius);
+      background: var(--group-color);
       color: #111;
-      font-size: 12px;
-      line-height: 1;
-      font-weight: 950;
+      font-size: 13px;
+      line-height: 1.35;
+      font-weight: 780;
       box-shadow: 2px 2px 0 var(--line);
     }
 
-    .position-group .situation-pills {
-      margin-top: 0;
+    .position-line strong {
+      font-weight: 950;
     }
 
-    .position-group .pill {
-      background: var(--group-color, #fff);
-      color: #111;
-    }
-
-    .position-group.pitcher {
+    .position-line.pitcher {
       --group-color: #bfd5ff;
     }
 
-    .position-group.catcher {
+    .position-line.catcher {
       --group-color: #ffcf1e;
     }
 
-    .position-group.infield {
+    .position-line.infield {
       --group-color: #c9f4df;
     }
 
-    .position-group.outfield {
+    .position-line.outfield {
       --group-color: #ffd6e9;
     }
 
+    .reference-footer {
+      margin-top: 18px;
+      padding-top: 2px;
+    }
+
     .reference-note {
-      border: 2px solid var(--line);
+      border: 3px solid var(--line);
       border-radius: var(--radius);
-      background: rgba(255, 255, 255, .76);
-      box-shadow: 3px 3px 0 rgba(17, 17, 17, .25);
+      background: #fff;
+      box-shadow: 4px 4px 0 rgba(17, 17, 17, .45);
     }
 
     .reference-note summary {
       display: flex;
-      min-height: 42px;
+      min-height: 48px;
       align-items: center;
       justify-content: space-between;
       gap: 10px;
-      padding: 9px 10px;
-      color: #4f4841;
-      font-size: 12px;
+      padding: 10px 11px;
+      color: #111;
+      font-size: 13px;
       line-height: 1.2;
-      font-weight: 900;
+      font-weight: 950;
     }
 
     .reference-note summary::after {
@@ -1331,6 +1317,22 @@
           <summary><span class="qmark">10</span><span>희생플라이는 왜 아웃인데 좋아하나요?</span></summary>
           <div class="answer">뜬공으로 타자는 아웃되지만, 3루 주자가 홈에 들어오면 점수가 납니다. 아웃 하나와 점수 하나를 바꾼 셈입니다.</div>
         </details>
+
+        <div class="reference-footer">
+          <details class="reference-note">
+            <summary>참고 정보</summary>
+            <div class="reference-body">
+              <p>경기 일정, 선수단, 응원가 공개, 기본 규칙을 확인할 때 참고한 링크입니다. 당일 라인업과 현장 운영은 경기장 안내를 기준으로 보면 됩니다.</p>
+              <div class="reference-links">
+                <a href="https://m.ticket.yes24.com/Notice/Detail.aspx?bid=17854" target="_blank" rel="noreferrer">예스24 티켓: 2026시즌 네 번째 직관 안내</a>
+                <a href="https://www.starnewskorea.com/broadcast-show/2026/05/12/2026051207395795628" target="_blank" rel="noreferrer">스타뉴스: 5월 24일 단국대전 및 주요 선수 언급</a>
+                <a href="https://enter.etoday.co.kr/news/view/297504" target="_blank" rel="noreferrer">비즈엔터: 불꽃야구2 선수단 및 오승환 합류 보도</a>
+                <a href="https://www.etoday.co.kr/news/view/2494499" target="_blank" rel="noreferrer">이투데이: 불꽃야구 선수 응원가 공개 보도</a>
+                <a href="https://visualbaseball.com/rules" target="_blank" rel="noreferrer">Visual Baseball: 야구 규칙 입문 정리</a>
+              </div>
+            </div>
+          </details>
+        </div>
       </section>
 
       <section id="cheer">
@@ -1464,43 +1466,12 @@
 
         <div class="roster-card">
           <h3>포지션별 이름을 들어두면 더 잘 보입니다</h3>
-          <p>같은 색은 같은 포지션입니다. 투수 이름은 마운드, 포수는 홈 뒤, 내야와 외야는 수비 위치나 타석을 같이 보면 됩니다.</p>
-          <div class="position-groups" aria-label="포지션별 주요 인물">
-            <div class="position-group pitcher">
-              <span class="position-label">투수</span>
-              <div class="situation-pills">
-                <span class="pill">송승준</span>
-                <span class="pill">니퍼트</span>
-                <span class="pill">유희관</span>
-                <span class="pill">이대은</span>
-                <span class="pill">신재영</span>
-                <span class="pill">오승환</span>
-              </div>
-            </div>
-            <div class="position-group catcher">
-              <span class="position-label">포수</span>
-              <div class="situation-pills">
-                <span class="pill">박재욱</span>
-              </div>
-            </div>
-            <div class="position-group infield">
-              <span class="position-label">내야</span>
-              <div class="situation-pills">
-                <span class="pill">정성훈</span>
-                <span class="pill">이대호</span>
-                <span class="pill">정근우</span>
-                <span class="pill">김재호</span>
-              </div>
-            </div>
-            <div class="position-group outfield">
-              <span class="position-label">외야</span>
-              <div class="situation-pills">
-                <span class="pill">박용택</span>
-                <span class="pill">이택근</span>
-                <span class="pill">정의윤</span>
-                <span class="pill">김문호</span>
-              </div>
-            </div>
+          <p>같은 색은 같은 포지션입니다. 이름이 들리면 해당 위치나 타석을 같이 보면 됩니다.</p>
+          <div class="position-lines" aria-label="포지션별 주요 인물">
+            <div class="position-line pitcher"><strong>투수 :</strong> 송승준 니퍼트 유희관 이대은 신재영 오승환</div>
+            <div class="position-line catcher"><strong>포수 :</strong> 박재욱</div>
+            <div class="position-line infield"><strong>내야 :</strong> 정성훈 이대호 정근우 김재호</div>
+            <div class="position-line outfield"><strong>외야 :</strong> 박용택 이택근 정의윤 김문호</div>
           </div>
         </div>
       </section>
@@ -1526,21 +1497,6 @@
         </div>
       </section>
 
-      <footer class="reference-footer">
-        <details class="reference-note">
-          <summary>참고 정보</summary>
-          <div class="reference-body">
-            <p>경기 일정, 선수단, 응원가 공개, 기본 규칙을 확인할 때 참고한 링크입니다. 당일 라인업과 현장 운영은 경기장 안내를 기준으로 보면 됩니다.</p>
-            <div class="reference-links">
-              <a href="https://m.ticket.yes24.com/Notice/Detail.aspx?bid=17854" target="_blank" rel="noreferrer">예스24 티켓: 2026시즌 네 번째 직관 안내</a>
-              <a href="https://www.starnewskorea.com/broadcast-show/2026/05/12/2026051207395795628" target="_blank" rel="noreferrer">스타뉴스: 5월 24일 단국대전 및 주요 선수 언급</a>
-              <a href="https://enter.etoday.co.kr/news/view/297504" target="_blank" rel="noreferrer">비즈엔터: 불꽃야구2 선수단 및 오승환 합류 보도</a>
-              <a href="https://www.etoday.co.kr/news/view/2494499" target="_blank" rel="noreferrer">이투데이: 불꽃야구 선수 응원가 공개 보도</a>
-              <a href="https://visualbaseball.com/rules" target="_blank" rel="noreferrer">Visual Baseball: 야구 규칙 입문 정리</a>
-            </div>
-          </div>
-        </details>
-      </footer>
     </main>
   </div>
 </body>
