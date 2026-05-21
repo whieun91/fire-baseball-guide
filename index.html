@@ -328,11 +328,11 @@
       order: 5;
     }
 
-    #faq {
+    #last {
       order: 6;
     }
 
-    #last {
+    #faq {
       order: 7;
     }
 
@@ -884,6 +884,58 @@
       font-weight: 720;
     }
 
+    .position-groups {
+      display: grid;
+      gap: 10px;
+      margin-top: 12px;
+    }
+
+    .position-group {
+      display: grid;
+      gap: 8px;
+    }
+
+    .position-label {
+      display: inline-flex;
+      width: fit-content;
+      min-height: 25px;
+      align-items: center;
+      padding: 3px 9px;
+      border: 2px solid var(--line);
+      border-radius: 999px;
+      background: var(--group-color, #fff);
+      color: #111;
+      font-size: 12px;
+      line-height: 1;
+      font-weight: 950;
+      box-shadow: 2px 2px 0 var(--line);
+    }
+
+    .position-group .situation-pills {
+      margin-top: 0;
+    }
+
+    .position-group .pill {
+      background: var(--group-color, #fff);
+      color: #111;
+    }
+
+    .position-group.pitcher {
+      --group-color: #bfd5ff;
+    }
+
+    .position-group.catcher {
+      --group-color: #ffcf1e;
+    }
+
+    .position-group.infield {
+      --group-color: #c9f4df;
+    }
+
+    .position-group.outfield {
+      --group-color: #ffd6e9;
+    }
+
     .final-card {
       display: grid;
       grid-template-columns: 48px 1fr;
@@ -951,7 +1003,7 @@
       }
 
       .tile-nav {
-        grid-template-columns: repeat(6, 98px);
+        grid-template-columns: repeat(5, 98px);
       }
     }
   </style>
@@ -1359,31 +1411,51 @@
 
         <div class="roster-card">
           <h3>포지션별 이름을 들어두면 더 잘 보입니다</h3>
-          <p>투수 이름이 들리면 마운드, 야수 이름이 들리면 타석과 수비 위치를 같이 보면 됩니다.</p>
-          <div class="situation-pills">
-            <span class="pill">투수: 송승준</span>
-            <span class="pill">니퍼트</span>
-            <span class="pill">유희관</span>
-            <span class="pill">이대은</span>
-            <span class="pill">신재영</span>
-            <span class="pill">오승환</span>
-            <span class="pill">포수: 박재욱</span>
-            <span class="pill">내야: 정성훈</span>
-            <span class="pill">이대호</span>
-            <span class="pill">정근우</span>
-            <span class="pill">김재호</span>
-            <span class="pill">외야: 박용택</span>
-            <span class="pill">이택근</span>
-            <span class="pill">정의윤</span>
-            <span class="pill">김문호</span>
+          <p>같은 색은 같은 포지션입니다. 투수 이름은 마운드, 포수는 홈 뒤, 내야와 외야는 수비 위치나 타석을 같이 보면 됩니다.</p>
+          <div class="position-groups" aria-label="포지션별 주요 인물">
+            <div class="position-group pitcher">
+              <span class="position-label">투수</span>
+              <div class="situation-pills">
+                <span class="pill">송승준</span>
+                <span class="pill">니퍼트</span>
+                <span class="pill">유희관</span>
+                <span class="pill">이대은</span>
+                <span class="pill">신재영</span>
+                <span class="pill">오승환</span>
+              </div>
+            </div>
+            <div class="position-group catcher">
+              <span class="position-label">포수</span>
+              <div class="situation-pills">
+                <span class="pill">박재욱</span>
+              </div>
+            </div>
+            <div class="position-group infield">
+              <span class="position-label">내야</span>
+              <div class="situation-pills">
+                <span class="pill">정성훈</span>
+                <span class="pill">이대호</span>
+                <span class="pill">정근우</span>
+                <span class="pill">김재호</span>
+              </div>
+            </div>
+            <div class="position-group outfield">
+              <span class="position-label">외야</span>
+              <div class="situation-pills">
+                <span class="pill">박용택</span>
+                <span class="pill">이택근</span>
+                <span class="pill">정의윤</span>
+                <span class="pill">김문호</span>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
       <section id="last">
         <div class="section-head">
-          <span class="section-label">LAST</span>
-          <h2>마지막 체크</h2>
+          <span class="section-label">CHECK</span>
+          <h2>현장 체크</h2>
           <p class="hint">경기장 안에서 제일 유용한 마음가짐입니다.</p>
         </div>
 
