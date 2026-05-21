@@ -4,6 +4,41 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>불꽃야구 5분 벼락치기</title>
+  <script>
+    (function () {
+      var measurementId = "G-THGF00C7H0";
+      var publishedHost = "whieun91.github.io";
+      var analyticsEnabled = window.location.hostname === publishedHost;
+
+      window.dataLayer = window.dataLayer || [];
+      window.gtag = window.gtag || function () {
+        window.dataLayer.push(arguments);
+      };
+
+      window.trackGuideEvent = function (eventName, params) {
+        if (!analyticsEnabled || typeof window.gtag !== "function") {
+          return;
+        }
+
+        window.gtag("event", eventName, params || {});
+      };
+
+      if (!analyticsEnabled) {
+        return;
+      }
+
+      var gtagScript = document.createElement("script");
+      gtagScript.async = true;
+      gtagScript.src = "https://www.googletagmanager.com/gtag/js?id=" + encodeURIComponent(measurementId);
+      document.head.appendChild(gtagScript);
+
+      window.gtag("js", new Date());
+      window.gtag("config", measurementId, {
+        page_title: document.title,
+        page_location: window.location.href
+      });
+    }());
+  </script>
   <style>
     :root {
       color-scheme: light;
@@ -1499,5 +1534,85 @@
 
     </main>
   </div>
+  <script>
+    (function () {
+      var sectionLabels = {
+        home: "홈",
+        cram: "요약",
+        board: "전광판",
+        people: "인물",
+        cheer: "응원",
+        faq: "질문"
+      };
+
+      function cleanText(element) {
+        return (element && element.textContent || "").replace(/\s+/g, " ").trim();
+      }
+
+      function sectionIdFromHashLink(link) {
+        var href = link.getAttribute("href") || "";
+        return href.charAt(0) === "#" ? href.slice(1) : "";
+      }
+
+      function track(eventName, params) {
+        if (typeof window.trackGuideEvent === "function") {
+          window.trackGuideEvent(eventName, params);
+        }
+      }
+
+      document.querySelectorAll(".tile-nav a[href^='#'], .quick-dock a[href^='#']").forEach(function (link) {
+        link.addEventListener("click", function () {
+          var sectionId = sectionIdFromHashLink(link);
+          var sectionLabel = sectionLabels[sectionId] || cleanText(link);
+
+          if (!sectionId) {
+            return;
+          }
+
+          track("guide_nav_" + sectionId, {
+            event_category: "guide_navigation",
+            menu_item: sectionLabel,
+            nav_area: link.closest(".quick-dock") ? "bottom_dock" : "top_tiles",
+            section_id: sectionId
+          });
+        });
+      });
+
+      document.querySelectorAll("#faq > details").forEach(function (details) {
+        details.addEventListener("toggle", function () {
+          if (!details.open) {
+            return;
+          }
+
+          track("guide_faq_open", {
+            event_category: "guide_faq",
+            question_number: cleanText(details.querySelector(".qmark")),
+            question_text: cleanText(details.querySelector("summary span:nth-child(2)"))
+          });
+        });
+      });
+
+      var referenceNote = document.querySelector(".reference-note");
+      if (referenceNote) {
+        referenceNote.addEventListener("toggle", function () {
+          if (referenceNote.open) {
+            track("guide_reference_open", {
+              event_category: "guide_reference"
+            });
+          }
+        });
+      }
+
+      document.querySelectorAll(".reference-links a").forEach(function (link) {
+        link.addEventListener("click", function () {
+          track("guide_reference_click", {
+            event_category: "guide_reference",
+            link_text: cleanText(link),
+            link_url: link.href
+          });
+        });
+      });
+    }());
+  </script>
 </body>
 </html>
