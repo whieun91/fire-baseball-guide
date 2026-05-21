@@ -336,10 +336,6 @@
       order: 7;
     }
 
-    #sources {
-      order: 8;
-    }
-
     .section-head {
       margin-bottom: 12px;
     }
@@ -384,7 +380,7 @@
       bottom: max(10px, env(safe-area-inset-bottom));
       z-index: 50;
       display: grid;
-      grid-template-columns: repeat(5, 1fr);
+      grid-template-columns: repeat(6, 1fr);
       width: min(calc(100% - 20px), 500px);
       transform: translateX(-50%);
       border: 3px solid var(--line);
@@ -432,6 +428,10 @@
       background: #c7b3ff;
     }
 
+    .quick-dock a:nth-child(6) {
+      background: var(--sky);
+    }
+
     .grid {
       display: grid;
       gap: 10px;
@@ -441,7 +441,6 @@
     details,
     .scoreboard,
     .person,
-    .source-list,
     .final-card {
       border: 3px solid var(--line);
       border-radius: var(--radius);
@@ -793,18 +792,6 @@
       font-weight: 720;
     }
 
-    .callout {
-      margin-top: 10px;
-      padding: 12px;
-      border: 3px solid var(--line);
-      border-radius: var(--radius);
-      background: #ffe0f4;
-      box-shadow: 4px 4px 0 var(--line);
-      font-size: 13px;
-      line-height: 1.42;
-      font-weight: 760;
-    }
-
     .people {
       display: grid;
       gap: 10px;
@@ -922,21 +909,6 @@
       font-weight: 950;
     }
 
-    .source-list {
-      display: grid;
-      gap: 8px;
-      padding: 12px;
-      background: #fff;
-      font-size: 12px;
-      line-height: 1.4;
-      font-weight: 740;
-    }
-
-    .source-list a {
-      color: #1f5c9f;
-      font-weight: 950;
-    }
-
     .svg-stroke {
       fill: none;
       stroke: var(--line);
@@ -986,7 +958,7 @@
 </head>
 <body>
   <div class="app">
-    <header class="hero">
+    <header class="hero" id="home">
       <span class="eyebrow">2026.05.24 고척돔 직관용</span>
       <h1 class="hero-title">불꽃야구<br><span class="hot">5분</span><br>벼락치기</h1>
       <p class="hero-copy">야구를 하나도 몰라도 경기장 분위기와 지금 상황을 바로 따라잡는 초보자용 모바일 가이드.</p>
@@ -1045,6 +1017,7 @@
     </nav>
 
     <nav class="quick-dock" aria-label="빠른 이동">
+      <a href="#home">홈</a>
       <a href="#cram">요약</a>
       <a href="#board">전광판</a>
       <a href="#people">인물</a>
@@ -1285,7 +1258,6 @@
             </div>
           </div>
         </div>
-        <div class="callout"><strong>가사 전문은 페이지에 넣지 않는 편을 추천.</strong> 응원가는 저작권 이슈가 있을 수 있고, 전광판 안내 여부는 행사 운영에 따라 달라질 수 있습니다. 대신 “언제, 어떻게 따라 할지”를 넣었습니다.</div>
       </section>
 
       <section id="people">
@@ -1426,21 +1398,6 @@
         <div class="final-card">
           <div class="final-num">C</div>
           <div><h3>응원은 완벽보다 타이밍</h3><p>응원단장, 전광판, 옆자리 박수 리듬만 따라가면 충분합니다.</p></div>
-        </div>
-      </section>
-
-      <section id="sources">
-        <div class="section-head">
-          <span class="section-label">SOURCE</span>
-          <h2>출처 메모</h2>
-          <p class="hint">경기 정보와 규칙 확인에 쓴 자료입니다.</p>
-        </div>
-        <div class="source-list">
-          <a href="https://m.ticket.yes24.com/Notice/Detail.aspx?bid=17854" target="_blank" rel="noreferrer">예스24 티켓: 2026 시즌 네 번째 직관 안내</a>
-          <a href="https://www.starnewskorea.com/broadcast-show/2026/05/12/2026051207395795628" target="_blank" rel="noreferrer">스타뉴스: 5월 24일 단국대전 및 주요 선수 언급</a>
-          <a href="https://enter.etoday.co.kr/news/view/297504" target="_blank" rel="noreferrer">비즈엔터: 불꽃야구2 선수단 및 오승환 합류 보도</a>
-          <a href="https://www.etoday.co.kr/news/view/2494499" target="_blank" rel="noreferrer">이투데이: 불꽃야구 선수 응원가 공개 보도</a>
-          <a href="https://visualbaseball.com/rules" target="_blank" rel="noreferrer">Visual Baseball: 야구 규칙 입문 정리</a>
         </div>
       </section>
     </main>
