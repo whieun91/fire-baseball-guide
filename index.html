@@ -38,6 +38,8 @@
       font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Pretendard", "Noto Sans KR", "Segoe UI", sans-serif;
       letter-spacing: 0;
       line-height: 1.48;
+      overflow-wrap: break-word;
+      word-break: keep-all;
     }
 
     h1,
@@ -105,10 +107,10 @@
     .hero-copy {
       position: relative;
       z-index: 2;
-      max-width: 310px;
+      max-width: 330px;
       margin-top: 16px;
-      font-size: 15px;
-      line-height: 1.45;
+      font-size: 16px;
+      line-height: 1.52;
       font-weight: 800;
     }
 
@@ -243,7 +245,7 @@
 
     .tile-nav {
       display: grid;
-      grid-template-columns: repeat(6, 104px);
+      grid-template-columns: repeat(5, 104px);
       gap: 0;
       overflow-x: auto;
       scrollbar-width: none;
@@ -285,10 +287,6 @@
       background: #c7b3ff;
     }
 
-    .tile-nav a:nth-child(6) {
-      background: var(--sky);
-    }
-
     .nav-icon {
       display: block;
       width: 34px;
@@ -297,7 +295,9 @@
     }
 
     main {
-      padding: 18px 14px 34px;
+      display: flex;
+      flex-direction: column;
+      padding: 18px 14px 126px;
       background:
         repeating-linear-gradient(0deg, transparent 0 29px, rgba(91, 142, 255, .18) 30px 31px),
         var(--paper);
@@ -306,6 +306,38 @@
     section {
       scroll-margin-top: 104px;
       margin-top: 30px;
+    }
+
+    #cram {
+      order: 1;
+    }
+
+    #terms {
+      order: 2;
+    }
+
+    #board {
+      order: 3;
+    }
+
+    #people {
+      order: 4;
+    }
+
+    #cheer {
+      order: 5;
+    }
+
+    #faq {
+      order: 6;
+    }
+
+    #last {
+      order: 7;
+    }
+
+    #sources {
+      order: 8;
     }
 
     .section-head {
@@ -327,10 +359,11 @@
 
     h2 {
       margin-top: 10px;
-      font-size: 30px;
-      line-height: .94;
+      font-size: 34px;
+      line-height: 1;
       font-weight: 950;
       letter-spacing: 0;
+      white-space: nowrap;
     }
 
     .hint {
@@ -339,6 +372,64 @@
       font-size: 13px;
       line-height: 1.4;
       font-weight: 750;
+    }
+
+    section:target .section-label {
+      background: var(--yellow);
+    }
+
+    .quick-dock {
+      position: fixed;
+      left: 50%;
+      bottom: max(10px, env(safe-area-inset-bottom));
+      z-index: 50;
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      width: min(calc(100% - 20px), 500px);
+      transform: translateX(-50%);
+      border: 3px solid var(--line);
+      border-radius: 18px;
+      background: #fff;
+      box-shadow: 5px 5px 0 var(--line);
+      overflow: hidden;
+    }
+
+    .quick-dock a {
+      display: grid;
+      place-items: center;
+      min-height: 46px;
+      padding: 6px 4px;
+      border-right: 2px solid var(--line);
+      color: #111;
+      text-align: center;
+      text-decoration: none;
+      font-size: 12px;
+      line-height: 1.05;
+      font-weight: 950;
+    }
+
+    .quick-dock a:last-child {
+      border-right: 0;
+    }
+
+    .quick-dock a:nth-child(1) {
+      background: var(--blue);
+    }
+
+    .quick-dock a:nth-child(2) {
+      background: var(--yellow);
+    }
+
+    .quick-dock a:nth-child(3) {
+      background: var(--green);
+    }
+
+    .quick-dock a:nth-child(4) {
+      background: #ff7d47;
+    }
+
+    .quick-dock a:nth-child(5) {
+      background: #c7b3ff;
     }
 
     .grid {
@@ -898,7 +989,7 @@
     <header class="hero">
       <span class="eyebrow">2026.05.24 고척돔 직관용</span>
       <h1 class="hero-title">불꽃야구<br><span class="hot">5분</span><br>벼락치기</h1>
-      <p class="hero-copy">야구를 하나도 몰라도 경기장에서 “지금 왜 난리인지”만 바로 잡아내는 초보자용 모바일 가이드.</p>
+      <p class="hero-copy">야구를 하나도 몰라도 경기장 분위기와 지금 상황을 바로 따라잡는 초보자용 모바일 가이드.</p>
 
       <div class="hero-doodles" aria-hidden="true">
         <div class="sticker ball">
@@ -938,30 +1029,34 @@
           <svg class="nav-icon" viewBox="0 0 48 48" aria-hidden="true"><rect x="7" y="9" width="34" height="26" rx="4" fill="#fff" stroke="#111" stroke-width="4"></rect><text x="24" y="27" text-anchor="middle" font-size="10" font-weight="950">B/S/O</text></svg>
           전광판
         </a>
-        <a href="#faq">
-          <svg class="nav-icon" viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="17" fill="#fff" stroke="#111" stroke-width="4"></circle><text x="24" y="31" text-anchor="middle" font-size="24" font-weight="950">?</text></svg>
-          질문 10개
+        <a href="#people">
+          <svg class="nav-icon" viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="16" r="9" fill="#ffd6b5" stroke="#111" stroke-width="4"></circle><path d="M10 42c3-19 25-19 28 0z" fill="#fff" stroke="#111" stroke-width="4"></path></svg>
+          인물
         </a>
         <a href="#cheer">
           <svg class="nav-icon" viewBox="0 0 48 48" aria-hidden="true"><path d="M10 33c8-14 20-19 30-4" fill="#fff" stroke="#111" stroke-width="4"></path><path d="M11 34h27" stroke="#111" stroke-width="4"></path></svg>
           응원
         </a>
-        <a href="#people">
-          <svg class="nav-icon" viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="16" r="9" fill="#ffd6b5" stroke="#111" stroke-width="4"></circle><path d="M10 42c3-19 25-19 28 0z" fill="#fff" stroke="#111" stroke-width="4"></path></svg>
-          인물
-        </a>
-        <a href="#last">
-          <svg class="nav-icon" viewBox="0 0 48 48" aria-hidden="true"><rect x="10" y="7" width="28" height="34" fill="#fff" stroke="#111" stroke-width="4"></rect><path d="M16 18h15M16 27h15" stroke="#111" stroke-width="4" stroke-linecap="round"></path></svg>
-          마지막 체크
+        <a href="#faq">
+          <svg class="nav-icon" viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="17" fill="#fff" stroke="#111" stroke-width="4"></circle><text x="24" y="31" text-anchor="middle" font-size="24" font-weight="950">?</text></svg>
+          질문
         </a>
       </div>
+    </nav>
+
+    <nav class="quick-dock" aria-label="빠른 이동">
+      <a href="#cram">요약</a>
+      <a href="#board">전광판</a>
+      <a href="#people">인물</a>
+      <a href="#cheer">응원</a>
+      <a href="#faq">질문</a>
     </nav>
 
     <main>
       <section id="cram">
         <div class="section-head">
           <span class="section-label">START</span>
-          <h2>가기 전<br>5분 요약</h2>
+          <h2>5분 요약</h2>
           <p class="hint">이 네 가지만 알면 경기 흐름은 따라갑니다.</p>
         </div>
 
@@ -1039,7 +1134,7 @@
       <section id="terms">
         <div class="section-head">
           <span class="section-label">WORDS</span>
-          <h2>진짜 기본<br>단어</h2>
+          <h2>기본 단어</h2>
           <p class="hint">중계와 주변 대화에서 제일 자주 들립니다.</p>
         </div>
 
@@ -1070,7 +1165,7 @@
       <section id="board">
         <div class="section-head">
           <span class="section-label">BOARD</span>
-          <h2>전광판<br>읽기</h2>
+          <h2>전광판 읽기</h2>
           <p class="hint">경기 중에는 이것만 봐도 상황이 잡힙니다.</p>
         </div>
 
@@ -1114,48 +1209,48 @@
       <section id="faq">
         <div class="section-head">
           <span class="section-label">FAQ</span>
-          <h2>경기 중<br>질문 10개</h2>
+          <h2>질문 10개</h2>
           <p class="hint">궁금할 때마다 하나씩 펼쳐보세요.</p>
         </div>
 
         <details open>
-          <summary><span class="qmark">01</span><span>지금 누가 공격 중인지 어떻게 알아요?</span></summary>
-          <div class="answer">타자가 서 있는 팀이 공격 중입니다. 전광판에 <strong>초</strong>가 보이면 먼저 공격하는 팀, <strong>말</strong>이 보이면 나중 공격하는 팀의 차례입니다.</div>
+          <summary><span class="qmark">01</span><span>지금은 어느 팀이 공격 중인가요?</span></summary>
+          <div class="answer">타자가 서 있는 팀이 공격 중입니다. 전광판의 <strong>초</strong>는 먼저 공격하는 팀, <strong>말</strong>은 나중 공격하는 팀의 차례입니다.</div>
         </details>
         <details>
-          <summary><span class="qmark">02</span><span>안 쳤는데 왜 스트라이크예요?</span></summary>
-          <div class="answer">공이 스트라이크 존을 지나가면 안 쳐도 스트라이크입니다. 헛스윙도 스트라이크입니다.</div>
+          <summary><span class="qmark">02</span><span>스트라이크는 무엇인가요?</span></summary>
+          <div class="answer">타자가 칠 만한 구역으로 공이 들어오면 스트라이크입니다. 방망이를 헛돌려도 스트라이크입니다.</div>
         </details>
         <details>
-          <summary><span class="qmark">03</span><span>파울은 좋은 건가요, 나쁜 건가요?</span></summary>
-          <div class="answer">파울라인 밖으로 간 공입니다. 스트라이크가 0개나 1개일 때는 스트라이크가 하나 늘고, 이미 2스트라이크라면 보통 계속 타석이 이어집니다.</div>
+          <summary><span class="qmark">03</span><span>파울은 무엇인가요?</span></summary>
+          <div class="answer">타자가 친 공이 파울라인 밖으로 나간 것입니다. 2스트라이크 이후의 파울은 보통 아웃이 아니라 타석이 계속됩니다.</div>
         </details>
         <details>
-          <summary><span class="qmark">04</span><span>왜 타자가 그냥 1루로 걸어가요?</span></summary>
+          <summary><span class="qmark">04</span><span>타자가 왜 그냥 1루로 걸어가나요?</span></summary>
           <div class="answer">볼이 4개가 되면 <strong>볼넷</strong>이라서 1루로 나갑니다. 몸에 공을 맞아도 1루로 갑니다.</div>
         </details>
         <details>
-          <summary><span class="qmark">05</span><span>주자가 갑자기 왜 뛰어요?</span></summary>
+          <summary><span class="qmark">05</span><span>주자는 왜 갑자기 뛰나요?</span></summary>
           <div class="answer">안타가 나왔거나, 수비가 공을 놓쳤거나, 다음 베이스를 훔치는 <strong>도루</strong>를 시도했을 수 있습니다.</div>
         </details>
         <details>
-          <summary><span class="qmark">06</span><span>번트는 왜 일부러 약하게 쳐요?</span></summary>
-          <div class="answer">타자 본인은 아웃될 각오로 주자를 다음 베이스에 보내는 작전입니다. 점수가 꼭 필요한 접전에서 자주 나옵니다.</div>
+          <summary><span class="qmark">06</span><span>번트는 무엇인가요?</span></summary>
+          <div class="answer">방망이를 크게 휘두르지 않고 공을 살짝 대는 작전입니다. 보통 주자를 다음 베이스로 보내려고 씁니다.</div>
         </details>
         <details>
-          <summary><span class="qmark">07</span><span>왜 투수를 갑자기 바꿔요?</span></summary>
+          <summary><span class="qmark">07</span><span>투수는 왜 갑자기 바꾸나요?</span></summary>
           <div class="answer">투수가 지쳤거나, 상대 타자와 상성이 안 좋거나, 위기라서 더 잘 막는 투수를 올리는 겁니다.</div>
         </details>
         <details>
-          <summary><span class="qmark">08</span><span>병살타는 왜 분위기가 확 꺾여요?</span></summary>
-          <div class="answer">한 번의 플레이로 아웃 2개가 생기는 상황입니다. 공격팀에게는 아주 아프고, 수비팀에게는 큰 환호 포인트입니다.</div>
+          <summary><span class="qmark">08</span><span>병살타는 무엇인가요?</span></summary>
+          <div class="answer">한 번의 플레이로 아웃 2개가 생기는 상황입니다. 공격팀에게는 아프고, 수비팀에게는 큰 환호 포인트입니다.</div>
         </details>
         <details>
-          <summary><span class="qmark">09</span><span>세이프랑 아웃은 뭘 보고 판단해요?</span></summary>
+          <summary><span class="qmark">09</span><span>세이프와 아웃은 어떻게 정해지나요?</span></summary>
           <div class="answer">주자가 베이스에 먼저 닿았는지, 공을 가진 수비수가 먼저 처리했는지 봅니다. 애매하면 비디오 판독이 나올 수 있습니다.</div>
         </details>
         <details>
-          <summary><span class="qmark">10</span><span>희생플라이는 왜 아웃인데 좋아해요?</span></summary>
+          <summary><span class="qmark">10</span><span>희생플라이는 왜 아웃인데 좋아하나요?</span></summary>
           <div class="answer">뜬공으로 타자는 아웃되지만, 3루 주자가 홈에 들어오면 점수가 납니다. 아웃 하나와 점수 하나를 바꾼 셈입니다.</div>
         </details>
       </section>
@@ -1163,7 +1258,7 @@
       <section id="cheer">
         <div class="section-head">
           <span class="section-label">CHEER</span>
-          <h2>응원은<br>이렇게</h2>
+          <h2>응원 가이드</h2>
           <p class="hint">가사를 몰라도 충분히 섞일 수 있습니다.</p>
         </div>
 
@@ -1196,7 +1291,7 @@
       <section id="people">
         <div class="section-head">
           <span class="section-label">PEOPLE</span>
-          <h2>먼저 알면<br>좋은 인물</h2>
+          <h2>인물 소개</h2>
           <p class="hint">출전 여부는 당일 라인업에 따라 달라질 수 있습니다.</p>
         </div>
 
@@ -1316,7 +1411,7 @@
       <section id="last">
         <div class="section-head">
           <span class="section-label">LAST</span>
-          <h2>마지막<br>체크</h2>
+          <h2>마지막 체크</h2>
           <p class="hint">경기장 안에서 제일 유용한 마음가짐입니다.</p>
         </div>
 
@@ -1337,7 +1432,7 @@
       <section id="sources">
         <div class="section-head">
           <span class="section-label">SOURCE</span>
-          <h2>출처<br>메모</h2>
+          <h2>출처 메모</h2>
           <p class="hint">경기 정보와 규칙 확인에 쓴 자료입니다.</p>
         </div>
         <div class="source-list">
